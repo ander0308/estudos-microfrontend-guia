@@ -1,4 +1,5 @@
 import React from 'react';
+import { useReward } from 'react-rewards';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -65,6 +66,7 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 export default function Album() {
   const classes = useStyles();
+  const { reward, isAnimating } = useReward('rewardId', 'confetti');
 
   return (
     <React.Fragment>
@@ -106,6 +108,17 @@ export default function Album() {
                       Pricing
                     </Button>
                   </Link>
+                </Grid>
+                <Grid item>
+                    <Button
+                      variant="outlined"
+                      color="primary"
+                      disabled={isAnimating}
+                      onClick={reward}>
+                      Confeti 🎉
+                      <span id="rewardId" />
+                    </Button>
+
                 </Grid>
               </Grid>
             </div>
