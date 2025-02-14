@@ -115,7 +115,7 @@ export default function Album() {
                       color="primary"
                       disabled={isAnimating}
                       onClick={reward}>
-                      Confeti 🎉
+                      Confete 🎉
                       <span id="rewardId" />
                     </Button>
 
