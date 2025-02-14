@@ -62,7 +62,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const cards = [
+  { id: 1, title: 'Gol Incrível', description: 'Um gol de placa marcado no último minuto, levando a torcida ao delírio.', image: 'https://foothub.com.br/wp-content/uploads/2024/03/image-46-768x432.png' },
+  { id: 2, title: 'Defesa Espetacular', description: 'O goleiro fez uma defesa inacreditável, salvando o time de uma derrota certa.', image: 'https://foothub.com.br/wp-content/uploads/2024/03/image-45-1024x660.png' },
+  { id: 3, title: 'Drible Desconcertante', description: 'Um drible que deixou o adversário no chão, arrancando aplausos da torcida.', image: 'https://foothub.com.br/wp-content/uploads/2024/03/image-37.png' },
+  { id: 4, title: 'Passe Preciso', description: 'Um passe milimétrico que resultou em gol, mostrando a habilidade do jogador.', image: 'https://foothub.com.br/wp-content/uploads/2024/03/image-38.png' },
+  { id: 5, title: 'Jogo Histórico', description: 'Uma partida que entrou para a história do futebol, cheia de emoções e reviravoltas.', image: 'https://foothub.com.br/wp-content/uploads/2024/03/image-41.png' },
+  { id: 6, title: 'Torcida Apaixonada', description: 'A torcida fez a diferença com seu apoio incondicional, empurrando o time para a vitória.', image: 'https://foothub.com.br/wp-content/uploads/2024/03/image-42.png' },
+  { id: 7, title: 'Técnico Visionário', description: 'O técnico fez uma substituição que mudou o jogo, mostrando sua visão estratégica.', image: 'https://foothub.com.br/wp-content/uploads/2024/03/image-43.png' },
+  { id: 8, title: 'Campeonato Memorável', description: 'Um campeonato cheio de emoções e surpresas, com jogos inesquecíveis.', image: 'https://foothub.com.br/wp-content/uploads/2025/01/image-9.png' },
+  { id: 9, title: 'Craque do Jogo', description: 'O jogador foi eleito o melhor em campo, destacando-se com sua performance brilhante.', image: 'https://foothub.com.br/wp-content/uploads/2025/01/image-11.png' },
+];
 
 export default function Album() {
   const classes = useStyles();
@@ -73,51 +83,59 @@ export default function Album() {
       <main>
         {/* Hero unit */}
         <div className={classes.heroContent}>
-          <Container maxWidth="sm">
+          <Container maxWidth="md">
+            <Typography
+              component="h1"
+              variant="caption"
+              align="center"
+              color="secondary"
+              gutterBottom
+            >
+              Emoção. Paixão. Vitória. Futebol.
+            </Typography>
             <Typography
               component="h1"
               variant="h2"
               align="center"
-              color="textPrimary"
+              color="primary"
               gutterBottom
             >
-              Home Page
-            </Typography>
+              Experiência de Futebol Incrível com Tecnologia de Ponta            </Typography>
             <Typography
               variant="h5"
               align="center"
               color="textSecondary"
               paragraph
             >
-              Something short and leading about the collection below—its
-              contents, the creator, etc. Make it short and sweet, but not too
-              short so folks don&apos;t simply skip over it entirely.
+              Descubra a emoção do futebol com nossa tecnologia de ponta.
+              Veja gols incríveis, defesas espetaculares e dribles desconcertantes.
+              Tudo isso com a melhor qualidade de imagem e som.
             </Typography>
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justifyContent="center">
                 <Grid item>
                   <Link to="/pricing">
                     <Button variant="contained" color="primary">
-                      Pricing
+                      Preços
                     </Button>
                   </Link>
                 </Grid>
                 <Grid item>
                   <Link to="/pricing">
                     <Button variant="outlined" color="primary">
-                      Pricing
+                      Preços
                     </Button>
                   </Link>
                 </Grid>
                 <Grid item>
-                    <Button
-                      variant="outlined"
-                      color="primary"
-                      disabled={isAnimating}
-                      onClick={reward}>
-                      Confete 🎉
-                      <span id="rewardId" />
-                    </Button>
+                  <Button
+                    variant="outlined"
+                    color="secondary"
+                    disabled={isAnimating}
+                    onClick={reward}>
+                    Comemore 🎉
+                    <span id="rewardId" />
+                  </Button>
 
                 </Grid>
               </Grid>
@@ -128,20 +146,19 @@ export default function Album() {
           {/* End hero unit */}
           <Grid container spacing={4}>
             {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+              <Grid item key={card.id} xs={12} sm={6} md={4}>
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://picsum.photos/seed/picsum/200/300"
+                    image={card.image}
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                    <Typography gutterBottom variant="h6" color='primary' component="h6">
+                      {card.title}
                     </Typography>
-                    <Typography>
-                      This is a media card. You can use this section to describe
-                      the content.
+                    <Typography color='textSecondary'>
+                      {card.description}
                     </Typography>
                   </CardContent>
                   <CardActions>
