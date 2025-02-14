@@ -56,6 +56,11 @@ const useStyles = makeStyles((theme) => ({
   cardContent: {
     flexGrow: 1,
   },
+  spanConfeti:{
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+  },
   footer: {
     margin: "0 auto",
     width: '100%',
@@ -86,6 +91,7 @@ export default function Album() {
       <main>
         {/* Hero unit */}
         <div className={classes.heroContent}>
+          <span id="rewardId" className={classes.spanConfeti} />
           <Container maxWidth="md">
             <Typography
               component="h1"
@@ -130,17 +136,6 @@ export default function Album() {
                     </Button>
                   </Link>
                 </Grid>
-                <Grid item>
-                  <Button
-                    variant="outlined"
-                    color="secondary"
-                    disabled={isAnimating}
-                    onClick={reward}>
-                    Comemore 🎉
-                    <span id="rewardId" />
-                  </Button>
-
-                </Grid>
               </Grid>
             </div>
           </Container>
@@ -165,11 +160,13 @@ export default function Album() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" color="primary">
-                      View
-                    </Button>
-                    <Button size="small" color="primary">
-                      Edit
+                    <Button
+                      size="small"
+                      color="primary"
+                      variant='text'
+                      disabled={isAnimating}
+                      onClick={reward}>
+                      Saiba mais 🎉
                     </Button>
                   </CardActions>
                 </Card>
@@ -181,7 +178,7 @@ export default function Album() {
       {/* Footer */}
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
-        Sobre o Futebolize
+          Sobre o Futebolize
         </Typography>
         <Typography
           variant="subtitle1"
