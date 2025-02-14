@@ -57,6 +57,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   footer: {
+    margin: "0 auto",
+    width: '100%',
+    maxWidth: "40%",
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(6),
   },
@@ -178,7 +181,7 @@ export default function Album() {
       {/* Footer */}
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
-          Footer
+        Sobre o Futebolize
         </Typography>
         <Typography
           variant="subtitle1"
@@ -186,8 +189,10 @@ export default function Album() {
           color="textSecondary"
           component="p"
         >
-          Something here to give the footer a purpose!
+          O Futebolize traz a emoção do futebol para você com a melhor tecnologia.
+          Acompanhe gols, defesas e dribles inesquecíveis com qualidade de imagem e som de ponta.
         </Typography>
+        <br />
         <Copyright />
       </footer>
       {/* End footer */}
