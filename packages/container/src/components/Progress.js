@@ -5,13 +5,13 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 const useStyles = makeStyles((theme) => {
   return createStyles({
     bar: {
-      width: '100%',
-      '& > * + *': {
+      width: "100%",
+      "& > * + *": {
         marginTop: theme.spacing(2),
       },
-    }
-  })
-})
+    },
+  });
+});
 
 export default () => {
   const classes = useStyles();

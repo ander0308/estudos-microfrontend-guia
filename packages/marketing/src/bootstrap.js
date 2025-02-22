@@ -1,23 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { createMemoryHistory, createBrowserHistory } from 'history';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import { createMemoryHistory, createBrowserHistory } from "history";
+import App from "./App";
 
 const mount = (el, { onNavigate, defautlHistory, initialPath }) => {
   const history =
     defautlHistory ||
     createMemoryHistory({
-    initialEntries: [initialPath]
-  });
+      initialEntries: [initialPath],
+    });
 
   if (onNavigate) {
     history.listen(onNavigate);
   }
 
-  ReactDOM.render(
-    <App history={history} />,
-    el
-  );
+  ReactDOM.render(<App history={history} />, el);
 
   return {
     onParentNavigate({ pathname: nextPathname }) {
@@ -26,19 +23,16 @@ const mount = (el, { onNavigate, defautlHistory, initialPath }) => {
       if (pathname !== nextPathname) {
         history.push(nextPathname);
       }
-    }
-  }
+    },
+  };
 };
 
-if (process.env.NODE_ENV === 'development') {
-  const devRoot = document.querySelector('#_marketing-dev-root');
+if (process.env.NODE_ENV === "development") {
+  const devRoot = document.querySelector("#_marketing-dev-root");
 
   if (devRoot) {
     mount(devRoot, { defautlHistory: createBrowserHistory() });
   }
-};
+}
 
 export { mount };
-
-
-
